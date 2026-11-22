@@ -1,0 +1,178 @@
+{
+  "model": "tfidf_lr",
+  "chosen_threshold": 0.45,
+  "cost_human_handoff": 1.0,
+  "cost_wrong_route": 4.0,
+  "val_at_threshold": {
+    "threshold": 0.45,
+    "coverage": 0.8352,
+    "auto_accuracy": 0.9605,
+    "handoff_rate": 0.1648,
+    "wrong_route_rate": 0.033,
+    "cost_per_100_calls": 29.67
+  },
+  "oos_handoff_rate": 1.0,
+  "oos_max_confidence": 0.3523,
+  "table": [
+    {
+      "threshold": 0.0,
+      "coverage": 1.0,
+      "auto_accuracy": 0.9031,
+      "handoff_rate": 0.0,
+      "wrong_route_rate": 0.0969,
+      "cost_per_100_calls": 38.76
+    },
+    {
+      "threshold": 0.05,
+      "coverage": 0.999,
+      "auto_accuracy": 0.904,
+      "handoff_rate": 0.001,
+      "wrong_route_rate": 0.0959,
+      "cost_per_100_calls": 38.46
+    },
+    {
+      "threshold": 0.1,
+      "coverage": 0.991,
+      "auto_accuracy": 0.9083,
+      "handoff_rate": 0.009,
+      "wrong_route_rate": 0.0909,
+      "cost_per_100_calls": 37.26
+    },
+    {
+      "threshold": 0.15,
+      "coverage": 0.973,
+      "auto_accuracy": 0.9148,
+      "handoff_rate": 0.027,
+      "wrong_route_rate": 0.0829,
+      "cost_per_100_calls": 35.86
+    },
+    {
+      "threshold": 0.2,
+      "coverage": 0.958,
+      "auto_accuracy": 0.9249,
+      "handoff_rate": 0.042,
+      "wrong_route_rate": 0.0719,
+      "cost_per_100_calls": 32.97
+    },
+    {
+      "threshold": 0.25,
+      "coverage": 0.9371,
+      "auto_accuracy": 0.9339,
+      "handoff_rate": 0.0629,
+      "wrong_route_rate": 0.0619,
+      "cost_per_100_calls": 31.07
+    },
+    {
+      "threshold": 0.3,
+      "coverage": 0.9161,
+      "auto_accuracy": 0.9389,
+      "handoff_rate": 0.0839,
+      "wrong_route_rate": 0.0559,
+      "cost_per_100_calls": 30.77
+    },
+    {
+      "threshold": 0.35,
+      "coverage": 0.8871,
+      "auto_accuracy": 0.9437,
+      "handoff_rate": 0.1129,
+      "wrong_route_rate": 0.05,
+      "cost_per_100_calls": 31.27
+    },
+    {
+      "threshold": 0.4,
+      "coverage": 0.8661,
+      "auto_accuracy": 0.9504,
+      "handoff_rate": 0.1339,
+      "wrong_route_rate": 0.043,
+      "cost_per_100_calls": 30.57
+    },
+    {
+      "threshold": 0.45,
+      "coverage": 0.8352,
+      "auto_accuracy": 0.9605,
+      "handoff_rate": 0.1648,
+      "wrong_route_rate": 0.033,
+      "cost_per_100_calls": 29.67
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 0.8092,
+      "auto_accuracy": 0.963,
+      "handoff_rate": 0.1908,
+      "wrong_route_rate": 0.03,
+      "cost_per_100_calls": 31.07
+    },
+    {
+      "threshold": 0.55,
+      "coverage": 0.7722,
+      "auto_accuracy": 0.9702,
+      "handoff_rate": 0.2278,
+      "wrong_route_rate": 0.023,
+      "cost_per_100_calls": 31.97
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.7403,
+      "auto_accuracy": 0.9757,
+      "handoff_rate": 0.2597,
+      "wrong_route_rate": 0.018,
+      "cost_per_100_calls": 33.17
+    },
+    {
+      "threshold": 0.65,
+      "coverage": 0.6963,
+      "auto_accuracy": 0.977,
+      "handoff_rate": 0.3037,
+      "wrong_route_rate": 0.016,
+      "cost_per_100_calls": 36.76
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.6593,
+      "auto_accuracy": 0.9803,
+      "handoff_rate": 0.3407,
+      "wrong_route_rate": 0.013,
+      "cost_per_100_calls": 39.26
+    },
+    {
+      "threshold": 0.75,
+      "coverage": 0.6074,
+      "auto_accuracy": 0.9836,
+      "handoff_rate": 0.3926,
+      "wrong_route_rate": 0.01,
+      "cost_per_100_calls": 43.26
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.5485,
+      "auto_accuracy": 0.9836,
+      "handoff_rate": 0.4515,
+      "wrong_route_rate": 0.009,
+      "cost_per_100_calls": 48.75
+    },
+    {
+      "threshold": 0.85,
+      "coverage": 0.4745,
+      "auto_accuracy": 0.9874,
+      "handoff_rate": 0.5255,
+      "wrong_route_rate": 0.006,
+      "cost_per_100_calls": 54.95
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.3776,
+      "auto_accuracy": 0.9974,
+      "handoff_rate": 0.6224,
+      "wrong_route_rate": 0.001,
+      "cost_per_100_calls": 62.64
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.2348,
+      "auto_accuracy": 1.0,
+      "handoff_rate": 0.7652,
+      "wrong_route_rate": 0.0,
+      "cost_per_100_calls": 76.52
+    }
+  ]
+}
