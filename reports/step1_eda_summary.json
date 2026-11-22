@@ -1,0 +1,13 @@
+{
+  "train_rows": 9002,
+  "val_rows": 1001,
+  "test_rows": 3080,
+  "num_intents": 77,
+  "min_examples_per_intent": 35,
+  "max_examples_per_intent": 187,
+  "avg_words": 11.95,
+  "p95_words": 29.0,
+  "max_words": 79,
+  "duplicates_in_train": 0,
+  "test_texts_also_in_train": 0
+}

@@ -59,6 +59,9 @@ if not inside_venv:
 #
 # If an import below fails with "ModuleNotFoundError: No module named 'x'", it means
 # library x is not installed in THIS venv. Fix: pip install -r requirements-dev.txt
+import os
+os.environ.setdefault("MLFLOW_DISABLE_AGENT_HINT", "1")   # hide an MLflow hint meant for AI assistants
+
 import numpy        # fast maths on arrays (lists of numbers)
 import pandas       # tables (DataFrames), like Excel inside Python
 import sklearn      # scikit-learn: classic ML models + metrics (pip name: scikit-learn)
