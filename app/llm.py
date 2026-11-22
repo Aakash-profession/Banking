@@ -39,6 +39,12 @@ load_dotenv()
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "")
+# Optional, for "reasoning" models like openai/gpt-oss-20b. They THINK silently before
+# answering, and those thinking tokens count against max_tokens (and the rate limit).
+# "low" keeps the thinking short: faster, fewer tokens. Leave empty for normal models.
+# (Measured: gpt-oss-20b with max_tokens=30 returned an EMPTY answer, because all 30
+#  tokens were spent thinking. With reasoning_effort=low and max_tokens=300 it works.)
+LLM_REASONING_EFFORT = os.getenv("LLM_REASONING_EFFORT", "")
 
 # ---- Fallback LLM (Ollama) ----
 FALLBACK_LLM_API_KEY = os.getenv("FALLBACK_LLM_API_KEY", "")
@@ -104,17 +110,24 @@ def _call_model(client: OpenAI, model: str, provider: str,
 
     temperature=0 = always pick the most likely next word -> stable, repeatable answers
                     (we want consistency for classification and FAQ answers, not creativity)
+    max_tokens    = the most tokens the model may produce (thinking + answer together)
     """
-    start = time.perf_counter()
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
+    request_settings = {
+        "model": model,
+        "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0,
-        max_tokens=max_tokens,
-    )
+        "temperature": 0,
+        "max_tokens": max_tokens,
+    }
+    # Only the primary (Groq gpt-oss) is a reasoning model; local Ollama llama3.2 is not.
+    if provider == "primary" and LLM_REASONING_EFFORT:
+        request_settings["reasoning_effort"] = LLM_REASONING_EFFORT
+
+    start = time.perf_counter()
+    # ** "unpacks" the dict: each key becomes a named argument (model=..., messages=..., ...)
+    response = client.chat.completions.create(**request_settings)
     latency_ms = (time.perf_counter() - start) * 1000
 
     text = response.choices[0].message.content or ""

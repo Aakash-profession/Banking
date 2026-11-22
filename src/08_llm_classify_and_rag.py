@@ -27,7 +27,9 @@ Definitions:
 """
 
 import json
+import os
 import sys
+import time
 
 import joblib
 import numpy as np
@@ -52,6 +54,13 @@ from app.rag import answer_question
 
 # sys.argv = the words typed after "python": ["src/08_...py", "20"]. Default: 200 queries.
 N_QUERIES = int(sys.argv[1]) if len(sys.argv) > 1 else 200
+
+# Rate-limit pacing. Free tiers limit tokens PER MINUTE (my Groq key: 8,000).
+# Instead of hitting the limit and getting "429 Too Many Requests" (and wasting requests
+# from the daily quota), we wait after each call in proportion to the tokens it used:
+#   a call that used 2,000 tokens with a limit of 8,000/minute -> wait 2000/8000 * 60 = 15 s
+# 0 (the default) = no pacing, e.g. for a local Ollama model.
+TOKENS_PER_MINUTE_LIMIT = int(os.getenv("LLM_TOKENS_PER_MINUTE", "0"))
 
 train_df, _, test_df = load_splits()
 all_intents = sorted(train_df["intent"].unique())
@@ -122,13 +131,18 @@ else:
         predictions, latencies, prompt_tokens, completion_tokens, costs = [], [], [], [], []
         for number, message in enumerate(sample_df["text"], start=1):
             try:
+                # max_tokens=300: the JSON answer is ~10 tokens, but reasoning models
+                # (gpt-oss) need room to "think" first, or they return an empty answer.
                 reply = ask_llm(SYSTEM_PROMPT, build_user_prompt(message, few_shot),
-                                max_tokens=30, batch_mode=True)
+                                max_tokens=300, batch_mode=True)
                 predictions.append(parse_intent(reply["text"]))
                 latencies.append(reply["latency_ms"])
                 prompt_tokens.append(reply["prompt_tokens"])
                 completion_tokens.append(reply["completion_tokens"])
                 costs.append(reply["cost_usd"])
+                if TOKENS_PER_MINUTE_LIMIT > 0:
+                    tokens_used = reply["prompt_tokens"] + reply["completion_tokens"]
+                    time.sleep(tokens_used / TOKENS_PER_MINUTE_LIMIT * 60)
             except Exception as error:
                 print(f"  call {number} failed: {type(error).__name__}")
                 predictions.append("ERROR")

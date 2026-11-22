@@ -1,0 +1,40 @@
+{
+  "llm_model": "openai/gpt-oss-20b",
+  "n_queries": 200,
+  "llm": {
+    "llm_zero_shot": {
+      "accuracy": 0.78,
+      "macro_f1": 0.7426,
+      "weighted_f1": 0.7669,
+      "invalid_rate": 0.01,
+      "error_rate": 0.0,
+      "latency_avg_ms": 451.7,
+      "latency_p95_ms": 675.2,
+      "avg_prompt_tokens": 534.5,
+      "avg_completion_tokens": 41.9,
+      "est_cost_per_1000_calls_usd": 0.0
+    },
+    "llm_few_shot": {
+      "accuracy": 0.82,
+      "macro_f1": 0.7639,
+      "weighted_f1": 0.8153,
+      "invalid_rate": 0.005,
+      "error_rate": 0.0,
+      "latency_avg_ms": 569.1,
+      "latency_p95_ms": 814.3,
+      "avg_prompt_tokens": 1884.5,
+      "avg_completion_tokens": 38.2,
+      "est_cost_per_1000_calls_usd": 0.0
+    }
+  },
+  "tfidf_lr_same_sample": {
+    "accuracy": 0.87,
+    "macro_f1": 0.8325,
+    "weighted_f1": 0.8688
+  },
+  "minilm_lr_same_sample": {
+    "accuracy": 0.895,
+    "macro_f1": 0.8837,
+    "weighted_f1": 0.8931
+  }
+}

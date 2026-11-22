@@ -239,7 +239,7 @@ for cluster_id in range(best_k):
                 system_prompt="You name groups of bank customer messages. Reply with ONLY a short "
                               "snake_case intent name (2 to 4 words), nothing else.",
                 user_prompt=f"Customer messages:\n{examples_text}\n\nIntent name:",
-                max_tokens=20,
+                max_tokens=300,   # room for a reasoning model to "think" before the short name
             )
             llm_name = reply["text"].splitlines()[0].strip().strip("`'\"")
         except Exception as error:   # the LLM is optional: never let it crash the script

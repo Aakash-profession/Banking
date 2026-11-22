@@ -165,7 +165,7 @@ def answer_question(question: str) -> dict:
             reply = ask_llm(
                 system_prompt=SYSTEM_PROMPT,
                 user_prompt=f"Context:\n{context}\n\nCustomer question: {question}\n\nAnswer:",
-                max_tokens=200,
+                max_tokens=500,   # thinking (reasoning models) + a 1-3 sentence answer
             )
             answer = reply["text"]
             # Guardrail 2: the LLM itself says the context does not contain the answer.
