@@ -1,0 +1,10 @@
+{
+  "model_name": "tfidf_lr",
+  "model_version": "tfidf_lr-2026-11-22",
+  "confidence_threshold": 0.45,
+  "sklearn_version": "1.9.1",
+  "trained_on": "Banking77 train split (90% of the official train set)",
+  "val_macro_f1": 0.9035,
+  "test_macro_f1": 0.8965,
+  "exported_on": "2026-11-22"
+}

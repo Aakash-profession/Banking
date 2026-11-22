@@ -1,0 +1,44 @@
+# render.yaml = Render settings written as code (a "Blueprint").
+# On Render: New > Blueprint > pick this GitHub repo. Render reads this file and creates
+# the database and the web service for you.
+#
+# Free tier facts (Render docs, checked 2026-11-22):
+#   - web service: 512 MB RAM, 0.1 CPU; sleeps after 15 minutes without traffic, and the
+#     first request after that takes about a minute (a "cold start")
+#   - disk is wiped on every restart/redeploy -> logs go to PostgreSQL, not a local file
+#   - free PostgreSQL: 1 GB, EXPIRES 30 days after creation (deleted 14 days later)
+#
+# The Python version comes from the .python-version file in the repo root (3.11.9),
+# so Render uses the same Python as my laptop. (Render's default for new services is newer.)
+
+databases:
+  - name: ivr-router-db
+    plan: free
+
+services:
+  - type: web
+    name: ivr-intent-router
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # $PORT is given by Render; 0.0.0.0 means "accept connections from outside the machine".
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      # Filled automatically with the database's connection URL.
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ivr-router-db
+          property: connectionString
+      # Primary LLM (Groq). "sync: false" means Render asks you to type the value in the
+      # dashboard, so the key is never stored in Git. Leave empty to run without an LLM.
+      # No FALLBACK_LLM_* here: a local Ollama model cannot run in 512 MB, so on Render the
+      # chain is Groq -> extractive answer.
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL
+        value: openai/gpt-oss-20b
+      - key: LLM_REASONING_EFFORT
+        value: low

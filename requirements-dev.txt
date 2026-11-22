@@ -3,6 +3,10 @@
 #
 # The "-r" line below means: "first install everything in requirements.txt too".
 # So my laptop always has everything the deployed API has, plus the extra tools below.
+# These experiment libraries are not pinned. Versions that worked on 2026-11-22:
+#   pandas 3.1.1, matplotlib 3.11.2, mlflow 3.18.0, spacy 3.8.18, sentence-transformers 6.3.0,
+#   xgboost 3.2.0, torch 2.15.0, transformers 5.24.0, accelerate 1.16.0, datasets 5.2.0, pytest 9.2.0
+# Also needed once for Step 2:  python -m spacy download en_core_web_sm
 -r requirements.txt
 
 pandas                  # tables (DataFrames), like Excel inside Python

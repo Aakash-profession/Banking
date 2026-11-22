@@ -30,6 +30,12 @@ mlflow.db
 mlruns/
 mlartifacts/
 
+# ---- Local request logs (SQLite) ----
+request_log.db
+
+# ---- pytest's cache folder ----
+.pytest_cache/
+
 # ---- Editor / operating-system junk ----
 .vscode/
 .idea/

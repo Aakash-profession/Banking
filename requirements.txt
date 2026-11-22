@@ -1,17 +1,20 @@
 # requirements.txt = the libraries the DEPLOYED API needs.
 # Render installs ONLY this file (build command: pip install -r requirements.txt).
 #
-# WHY keep it small: Render's free tier has only 512 MB of RAM. Every heavy library
-# we leave out of this file (torch, transformers, sentence-transformers) is memory
-# we save in production.
+# WHY keep it small: Render's free tier has only 512 MB of RAM. Measured on my laptop:
+#   this API uses ~257 MB; the same API with sentence-transformers + PyTorch needs ~665 MB.
+#
+# WHY exact versions ("pinning", ==): Render then installs exactly what worked on my laptop.
+# It matters most for scikit-learn: a saved model (joblib/pickle file) is only safe to load
+# with the SAME scikit-learn version that saved it (see app/artifacts/model_info.json).
 
-fastapi         # the web framework for our API (/health, /route, /answer)
-uvicorn         # the web server that runs the FastAPI app
-scikit-learn    # TF-IDF + Logistic Regression (our deployed intent model)
-nltk            # Porter stemming, the first step of the deployed model (pure Python, light)
-numpy           # fast maths on arrays (lists of numbers)
-faiss-cpu       # vector search for the FAQ answers (RAG)
-openai          # LLM client (works with OpenAI, Gemini and Ollama via their OpenAI-style APIs)
-python-dotenv   # reads secrets from a local .env file (never committed)
-sqlalchemy      # talks to the database where we log every request
-psycopg[binary] # the PostgreSQL driver (Render's database is PostgreSQL)
+fastapi==0.165.0         # the web framework for our API (/health, /route, /answer, /stats)
+uvicorn==0.54.0          # the web server that runs the FastAPI app
+scikit-learn==1.9.1      # TF-IDF + Logistic Regression (our deployed intent model)
+nltk==3.10.4             # Porter stemming, the first step of the deployed model (pure Python, light)
+numpy==2.4.6             # fast maths on arrays (lists of numbers)
+faiss-cpu==1.16.0        # vector search for the FAQ answers (RAG)
+openai==3.57.0           # LLM client (works with Groq, OpenAI, Gemini and Ollama via OpenAI-style APIs)
+python-dotenv==1.2.4     # reads secrets from a local .env file (never committed)
+sqlalchemy==2.1.9        # talks to the database where we log every request
+psycopg[binary]==3.3.9   # the PostgreSQL driver (Render's database is PostgreSQL)
