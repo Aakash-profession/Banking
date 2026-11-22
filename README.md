@@ -60,14 +60,19 @@ LLM vs trained models on the **same 200 test messages** (Groq `openai/gpt-oss-20
 | Sent to a human | 16.5% | 17.6% |
 | Off-topic questions sent to a human | 30 / 30 | |
 
-### FAQ answers (RAG, 30-question golden set: 25 answerable, 5 not in the docs)
+### FAQ answers (RAG, 33-question golden set: 25 answerable, 8 not in the docs)
+
+3 of the 8 unanswerable questions are "same words, different situation" traps found in live
+testing (e.g. *"I can't take my money from the past 3 days"* once got an answer about refunds
+for unauthorised payments). The fix: the LLM must first check that the context really answers
+the question; `reasoning_effort=medium` made that check consistent (15/15 vs 12/15 with `low`).
 
 | Metric | Value |
 |---|---|
 | Retrieval hit@1 / hit@3, TF-IDF (deployed) | 0.96 / 1.00 |
 | Retrieval hit@1 / hit@3, MiniLM embeddings | 1.00 / 1.00 |
 | Correct answers (answerable, Groq) | 96% |
-| Correct refusals (not in the docs) | 100% |
+| Correct refusals (not in the docs) | 100% (8 / 8) |
 | Wrong refusals (answerable) | 4% (1 question: TF-IDF missed "abroad" ≈ "international") |
 
 ### Intent discovery (5 intents hidden from training)

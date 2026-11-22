@@ -170,7 +170,10 @@ def normalize_text(text: str) -> str:
     text = text.lower()
     for dash in ["‐", "‑", "‒", "–", "—"]:   # different hyphens/dashes
         text = text.replace(dash, "-")
-    text = text.replace("’", "'").replace(" ", " ")          # curly apostrophe, no-break space
+    for space in [" ", " ", " "]:                       # no-break / narrow / thin spaces
+        text = text.replace(space, " ")
+    text = text.replace("’", "'")                                 # curly apostrophe
+    text = text.replace(" %", "%")                                     # "0.5 %" counts as "0.5%"
     return text
 
 
@@ -217,6 +220,7 @@ for _, item in golden_df.iterrows():
         phrase_found = normalize_text(item["expected_phrase"]) in normalize_text(result["answer"])
     rows.append({
         "question": item["question"],
+        "answer": result["answer"],
         "answerable": item["answerable"] == "yes",
         "refused": result["refused"],
         "phrase_found": phrase_found,
@@ -249,7 +253,7 @@ print(f"  answerable questions   : min {answerable_results['top_score'].min():.3
 print(f"  unanswerable questions : max {unanswerable_results['top_score'].max():.3f}, "
       f"median {unanswerable_results['top_score'].median():.3f}")
 print("A good threshold sits between the unanswerable max and the answerable min.")
-print("Caution: we look at the SAME 30 questions we report on, so this is slightly optimistic;")
+print(f"Caution: we look at the SAME {len(golden_df)} questions we report on, so this is slightly optimistic;")
 print("a bigger golden set split into 'tune' and 'report' halves would be cleaner.")
 
 for _, row in results_df.iterrows():
@@ -274,6 +278,8 @@ rag_summary = {
 }
 save_json({"intent_models": table_rows, "deployed_with_threshold": deployed_summary, "rag": rag_summary},
           REPORTS_DIR / "step9_final_results.json")
+# Every golden-set answer, so misses can be READ (a metric can be wrong, as we saw twice).
+save_json({"answers": rows}, REPORTS_DIR / "step9_rag_answers.json")
 
 markdown_lines = [
     "| Model | Test accuracy | Test macro-F1 | Val macro-F1 | Latency / message (ms, laptop CPU) | Size (MB) |",

@@ -41,9 +41,11 @@ LLM_BASE_URL = os.getenv("LLM_BASE_URL", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "")
 # Optional, for "reasoning" models like openai/gpt-oss-20b. They THINK silently before
 # answering, and those thinking tokens count against max_tokens (and the rate limit).
-# "low" keeps the thinking short: faster, fewer tokens. Leave empty for normal models.
-# (Measured: gpt-oss-20b with max_tokens=30 returned an EMPTY answer, because all 30
-#  tokens were spent thinking. With reasoning_effort=low and max_tokens=300 it works.)
+# "low" = short thinking (faster, fewer tokens); "medium" = more careful. Empty = normal models.
+# Measured: gpt-oss-20b with max_tokens=30 returned an EMPTY answer (all 30 tokens spent
+# thinking) -> give it max_tokens >= 300. For the RAG relevance check, "low" answered a
+# borderline FAQ question correctly only 2 of 5 times, "medium" 5 of 5 (12/15 vs 15/15 over
+# 3 test questions), at ~0.4-0.9 s per answer. So we use "medium".
 LLM_REASONING_EFFORT = os.getenv("LLM_REASONING_EFFORT", "")
 
 # ---- Fallback LLM (Ollama) ----

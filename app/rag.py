@@ -55,17 +55,30 @@ RELATIVE_SCORE_CUTOFF = 0.6
 REFUSAL_MESSAGE = "Sorry, I don't have that information. Let me transfer you to an agent."
 
 # The rules for the LLM. Short answers because they are read aloud on a phone call.
-# Lesson learned: the first version only said "use ONLY the context", and the model refused
-# "Can my 16 year old son open an account?" although the context says "at least 18".
-# It was too strict to do the one-step reasoning 16 < 18. So the prompt now ALLOWS applying
-# the facts to the caller's situation, while still forbidding NEW facts.
+# Lessons learned from live testing:
+#   1. "Use ONLY the context" alone was too strict: the model refused "Can I open an account,
+#      I am 25?" although the context says "at least 18". -> allow APPLYING the facts.
+#   2. Retrieval matches WORDS, so it can return a section about a different situation:
+#      "I can't take my money out for 3 days" retrieved "Will I get my MONEY back for payments
+#      I did not make?", and the model answered from it. -> the model must first CHECK that the
+#      context really answers this question (a "relevance check"), otherwise say I don't know.
+#   3. The first relevance check was TOO strict: it refused "My card hasn't come after two
+#      weeks" although a section covers cards not arriving after 10 working days. -> say
+#      clearly that the SAME situation in DIFFERENT words still counts.
+#      (The examples in the prompt deliberately differ from the golden-set questions, so we
+#       do not tune the prompt to the test.)
 SYSTEM_PROMPT = (
-    "You are Demo Bank's phone assistant. Answer the customer's question using ONLY the facts "
-    "in the context provided. You may apply those facts to the customer's situation, for "
-    "example by comparing an age, amount or number of days with a rule in the context. "
-    "Answer in 1 to 3 short sentences that can be read aloud on a phone call. Do not add "
-    "facts, numbers or advice that are not in the context. If the context does not contain "
-    "the facts needed to answer, reply exactly: I don't know."
+    "You are Demo Bank's phone assistant. "
+    "Step 1: check whether the context really answers the customer's question. The context "
+    "comes from a keyword search, so it may contain sections about a DIFFERENT situation that "
+    "only share some words with the question (for example 'money' or 'card'). Never answer "
+    "from such sections. But a section that describes the SAME situation in different words "
+    "or units DOES answer it (for example 'cash machine' and 'ATM', or 'a fortnight' and "
+    "'14 days'). If no section answers this question, reply exactly: I don't know. "
+    "Step 2: if a section does answer it, answer using ONLY the facts in the context. You may "
+    "apply those facts to the customer's situation, for example by comparing an age, amount or "
+    "number of days with a rule in the context. Answer in 1 to 3 short sentences that can be "
+    "read aloud on a phone call. Do not add facts, numbers or advice that are not in the context."
 )
 
 

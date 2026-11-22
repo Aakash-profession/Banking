@@ -192,6 +192,11 @@ with faq_tab:
         "The bot searches the bank's FAQ documents, gives the best sections to the LLM, and only "
         "answers from them. If the documents do not contain the answer, it refuses."
     )
+    st.caption(
+        "Note: this tab is a direct test of the FAQ bot and SKIPS the intent router. In the real "
+        "call flow ('Route a message' tab), only messages the router confidently classifies as an "
+        "FAQ topic reach the FAQ bot; vague messages go to a human first."
+    )
     example_question = st.selectbox("Pick an example question", EXAMPLE_QUESTIONS)
     question = st.text_input("Question", value=example_question, max_chars=500)
 

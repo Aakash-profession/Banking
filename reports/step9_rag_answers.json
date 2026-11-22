@@ -1,0 +1,334 @@
+{
+  "answers": [
+    {
+      "question": "How many days does it take for a new card to arrive?",
+      "answer": "Standard delivery takes 5 to 7 working days. Express delivery takes 2 working days.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3195,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How much does express card delivery cost?",
+      "answer": "Express delivery costs \u00a35.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3339,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "My card still hasn't come after two weeks. What do I do?",
+      "answer": "Report it in the app under\u202fCards\u202f>\u202fCard not received. We\u2019ll cancel the missing card and send you a replacement free of charge.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.1964,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How do I activate the card I just received?",
+      "answer": "Open the app, go to\u202fCards\u202f>\u202fActivate card, and enter the 6\u2011digit code printed on the letter that came with your card. The card will work immediately after activation.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.37,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "I entered the wrong PIN three times and now it is blocked",
+      "answer": "Your PIN is blocked after 3 wrong attempts.  \nYou can unblock it in the app under Cards\u202f>\u202fUnblock PIN.  \nIf the app doesn\u2019t allow it, an agent can unblock it for you.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3544,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "What is the maximum amount I can top up per day?",
+      "answer": "The maximum daily top\u2011up is \u00a35,000.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.1828,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Is there a fee for topping up with a debit card?",
+      "answer": "Top\u2011ups by debit card are free up to \u00a33,000 per month. Above that, a 0.5\u202f% fee applies.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3989,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "My top-up failed. When do I get the money back?",
+      "answer": "If a top\u2011up fails, the money is returned to your card within 5 working days.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.1732,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Which exchange rate do you use on weekdays?",
+      "answer": "We use the interbank exchange rate on weekdays.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.5015,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Do you charge more for currency exchange at the weekend?",
+      "answer": "Yes. On weekends (Saturday and Sunday) we add a 1% markup to the exchange rate.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3222,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How much currency can I exchange per month without paying a fee?",
+      "answer": "You can exchange up to \u00a31,000 per month without a fee.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.4525,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How much cash can I withdraw for free each month?",
+      "answer": "You can withdraw up to \u00a3200 per month for free.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.399,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "What is the daily ATM withdrawal limit?",
+      "answer": "Your daily ATM withdrawal limit is \u00a3500.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.4916,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "The cash machine swallowed my card",
+      "answer": "Freeze the card in the app right away and order a replacement under\u202fCards\u202f>\u202fReplace card. Don\u2019t wait for the ATM owner to return it.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3016,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "I lost my card. What should I do?",
+      "answer": "Freeze your card immediately in the app under\u202fCards\u202f>\u202fFreeze card.  \nThen report it under\u202fCards\u202f>\u202fReport lost or stolen.  \nWe\u2019ll cancel it and send you a new card free of charge.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3165,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "There are payments on my account that I did not make",
+      "answer": "If you report the unauthorized payments within 60 days, we will refund them after our investigation. The investigation usually takes up to 10 working days.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3298,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How long does an international transfer take?",
+      "answer": "International transfers take 1 to 3 working days, depending on the country and currency.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3212,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How much does it cost to send money abroad?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": true,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.2246,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Can I cancel a bank transfer I sent?",
+      "answer": "You can cancel a transfer only while it is still pending. Completed transfers cannot be cancelled; contact the recipient instead.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.2749,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Which documents can I use to verify my identity?",
+      "answer": "You can use a passport, a national identity card or a driving licence.  \nYou also need to take a selfie in the app so we can match your face to the photo on the document.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.468,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Why do you need to verify my identity?",
+      "answer": "Banks must confirm who their customers are by law, to prevent fraud and money laundering. Until your identity is verified, you cannot use all account features.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.3876,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Is my card a Visa or a Mastercard?",
+      "answer": "Your card is a Visa debit card.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.5053,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How old do I have to be to open an account?",
+      "answer": "You must be at least 18\u202fyears old to open a Demo Bank account.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.5943,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "How do I close my account?",
+      "answer": "Move all your money out first so the balance is zero. Then go to Profile\u202f>\u202fClose account in the app. Closing is free and takes effect immediately.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.5075,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Can I add my card to Apple Pay?",
+      "answer": "Yes, you can add your Demo Bank card to Apple\u202fPay. Just go to Cards\u202f>\u202fAdd to wallet in the app. Once added, you can use it wherever contactless payments are accepted.",
+      "answerable": true,
+      "refused": false,
+      "phrase_found": true,
+      "top_score": 0.5017,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "What is the interest rate on your savings account?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.2293,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Can I get a mortgage from Demo Bank?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.2706,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "What are the opening hours of your Mumbai branch?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.1655,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "Can I buy Bitcoin in the app?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.1347,
+      "used_llm": false,
+      "llm_provider": "none"
+    },
+    {
+      "question": "What is the weather like in London today?",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.0,
+      "used_llm": false,
+      "llm_provider": "none"
+    },
+    {
+      "question": "i cant take my money from the past 3 days",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.2363,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "my card payment was declined at the shop",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.2052,
+      "used_llm": true,
+      "llm_provider": "primary"
+    },
+    {
+      "question": "the app keeps crashing when I log in",
+      "answer": "Sorry, I don't have that information. Let me transfer you to an agent.",
+      "answerable": false,
+      "refused": true,
+      "phrase_found": false,
+      "top_score": 0.1347,
+      "used_llm": false,
+      "llm_provider": "none"
+    }
+  ]
+}

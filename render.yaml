@@ -41,4 +41,4 @@ services:
       - key: LLM_MODEL
         value: openai/gpt-oss-20b
       - key: LLM_REASONING_EFFORT
-        value: low
+        value: medium
