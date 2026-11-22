@@ -21,3 +21,4 @@ transformers            # Step 5: Hugging Face models + Trainer
 accelerate              # Step 5: needed by the Hugging Face Trainer
 datasets                # Step 5: Hugging Face table format for training data
 pytest                  # Step 9: automatic tests
+streamlit               # web UI (ui/streamlit_app.py); deployed separately with ui/requirements.txt

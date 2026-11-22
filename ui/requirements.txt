@@ -1,0 +1,5 @@
+# Libraries for the Streamlit UI only (ui/streamlit_app.py).
+# The UI calls the API over HTTP, so it needs no ML libraries at all.
+# Streamlit Community Cloud reads THIS file first, because it sits next to the app file.
+streamlit==1.67.0   # turns a Python script into a web page (also installs pandas)
+requests==2.34.2    # sends HTTP requests to the FastAPI back end

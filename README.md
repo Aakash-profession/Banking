@@ -108,9 +108,35 @@ for word and Step 8 part (a) is skipped. For the local fallback: install Ollama 
 | 10 | `python src/10_export_model.py` | promote the chosen model into `app/artifacts/` |
 | tests | `pytest` | 18 automatic tests (routing, RAG, API, quality regression) |
 | API | `uvicorn app.main:app --reload` | then open http://127.0.0.1:8000/docs |
+| UI | `streamlit run ui/streamlit_app.py` | then open http://localhost:8501 |
 | MLflow | `mlflow ui` | then open http://127.0.0.1:5000 |
 
 Always run from this folder (MLflow saves to `mlflow.db` here).
+
+## Live demo
+
+- **API docs (try it in the browser):** https://ivr-intent-router.onrender.com/docs
+  (free tier: the first request after 15 idle minutes takes about a minute)
+
+## Web UI (Streamlit)
+
+`ui/streamlit_app.py` is a small front end that calls the API over HTTP (it loads no model):
+
+| Tab | What it shows |
+|---|---|
+| 📞 Route a message | intent, confidence bar vs threshold, route (FAQ bot / team queue / human), FAQ answer + sources |
+| 💬 Ask the FAQ bot | grounded answer with sources, or a refusal when the docs have no answer |
+| 📊 Monitoring | `/stats`: routed messages, handoff rate, average confidence, latency, top intents, LLM provider |
+| 🏆 Model results | offline results from Steps 8 and 9 |
+| ℹ️ How it works | the routing rules in plain words |
+
+```powershell
+streamlit run ui/streamlit_app.py     # then open http://localhost:8501
+```
+
+The sidebar switches between the Render API (default) and a local one (`http://127.0.0.1:8000`).
+To host the UI for free: Streamlit Community Cloud → Create app → this repo, branch `main`,
+main file `ui/streamlit_app.py` (it installs `ui/requirements.txt`, which sits next to the app).
 
 ## API
 
