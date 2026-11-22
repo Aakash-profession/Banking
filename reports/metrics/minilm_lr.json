@@ -1,0 +1,11 @@
+{
+  "model": "minilm_lr",
+  "split": "validation",
+  "train_time_s": 8.33,
+  "accuracy": 0.9281,
+  "macro_f1": 0.9325,
+  "weighted_f1": 0.9282,
+  "latency_avg_ms": 27.682,
+  "latency_p95_ms": 39.767,
+  "model_size_mb": 86.8
+}

@@ -1,0 +1,11 @@
+{
+  "model": "minilm_xgb",
+  "split": "validation",
+  "train_time_s": 496.0,
+  "accuracy": 0.8881,
+  "macro_f1": 0.8937,
+  "weighted_f1": 0.8886,
+  "latency_avg_ms": 48.64,
+  "latency_p95_ms": 56.619,
+  "model_size_mb": 101.1
+}
