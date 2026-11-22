@@ -5,12 +5,15 @@
 # So my laptop always has everything the deployed API has, plus the extra tools below.
 -r requirements.txt
 
-matplotlib      # charts: class balance, text lengths, confusion pairs, threshold curves
-mlflow          # experiment tracking: records the settings + results of every run
-
-# Added in later steps, each one only when we first need it (so I know WHY it is here):
-#   Step 2: spacy, nltk                 -> text preprocessing
-#   Step 4: sentence-transformers, xgboost
-#   Step 5: torch, transformers         -> fine-tuning DistilBERT
-#   Step 8: faiss-cpu + an LLM SDK      -> RAG + LLM classification
-#   Step 9: pytest                      -> automatic tests
+pandas                  # tables (DataFrames), like Excel inside Python
+matplotlib              # charts: class balance, text lengths, threshold curves
+mlflow                  # experiment tracking: records settings + results of every run
+spacy                   # Step 2: tokenization, stopwords, lemmatization
+                        # (nltk, for stemming, is in requirements.txt: the deployed model needs it)
+sentence-transformers   # Step 4: sentence embeddings (all-MiniLM-L6-v2)
+xgboost                 # Step 4: gradient boosted trees
+torch                   # Step 5: deep learning library that DistilBERT runs on
+transformers            # Step 5: Hugging Face models + Trainer
+accelerate              # Step 5: needed by the Hugging Face Trainer
+datasets                # Step 5: Hugging Face table format for training data
+pytest                  # Step 9: automatic tests

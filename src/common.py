@@ -159,16 +159,41 @@ def load_json(path: Path) -> dict:
         return json.load(file)
 
 
-def setup_mlflow() -> None:
-    """Point MLflow at <repo root>/mlflow.db and select our experiment.
+def log_mlflow_run(
+    run_name: str,
+    params: dict,
+    metrics: dict,
+    artifact_paths: list[Path] | None = None,
+    metrics_per_epoch: dict[str, list[float]] | None = None,
+) -> None:
+    """Record ONE run in MLflow: what we chose (params) and what we measured (metrics).
 
-    WHY set the location explicitly: by default MLflow saves to mlflow.db in whatever
-    folder you happen to run from. Fixing it to the repo root means every script
-    writes to the same place, and `mlflow ui` (run from the repo root) finds all runs.
+    MLflow words:
+        experiment = a group of related runs (ours: "ivr-intent-router")
+        run        = one execution of a training script
+        param      = a setting we CHOSE      (e.g. C = 10)
+        metric     = a number we MEASURED    (e.g. val_macro_f1 = 0.90)
+        artifact   = a file kept next to the run (e.g. the per-intent report)
+
+    WHERE: MLflow saves to <repo root>/mlflow.db. We fix the location explicitly so every
+    script writes to the same place, and `mlflow ui` (run from the repo root) finds all runs.
+
+    metrics_per_epoch (optional): {"train_loss": [0.9, 0.4, 0.2]} -> logged as epoch 1, 2, 3,
+    so MLflow can draw a line chart (used by Step 5).
     """
     db_path = (ROOT_DIR / "mlflow.db").as_posix()   # as_posix = forward slashes, needed in a URI
     mlflow.set_tracking_uri(f"sqlite:///{db_path}")
     mlflow.set_experiment(MLFLOW_EXPERIMENT)
+
+    # "with" starts the run and ends it automatically when the block finishes.
+    with mlflow.start_run(run_name=run_name):
+        mlflow.log_params(params)
+        mlflow.log_metrics(metrics)
+        for path in artifact_paths or []:
+            mlflow.log_artifact(str(path))
+        for metric_name, values in (metrics_per_epoch or {}).items():
+            for epoch_number, value in enumerate(values, start=1):
+                mlflow.log_metric(metric_name, value, step=epoch_number)
 
 
 def print_header(title: str) -> None:
