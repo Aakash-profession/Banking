@@ -1,0 +1,54 @@
+{
+  "confused_pairs": [
+    {
+      "true": "balance_not_updated_after_bank_transfer",
+      "predicted": "pending_transfer",
+      "count": 2
+    },
+    {
+      "true": "card_arrival",
+      "predicted": "card_delivery_estimate",
+      "count": 2
+    },
+    {
+      "true": "card_payment_not_recognised",
+      "predicted": "compromised_card",
+      "count": 2
+    },
+    {
+      "true": "card_payment_not_recognised",
+      "predicted": "extra_charge_on_statement",
+      "count": 2
+    },
+    {
+      "true": "extra_charge_on_statement",
+      "predicted": "transfer_fee_charged",
+      "count": 2
+    },
+    {
+      "true": "top_up_by_bank_transfer_charge",
+      "predicted": "top_up_by_card_charge",
+      "count": 2
+    },
+    {
+      "true": "top_up_failed",
+      "predicted": "pending_top_up",
+      "count": 2
+    },
+    {
+      "true": "why_verify_identity",
+      "predicted": "unable_to_verify_identity",
+      "count": 2
+    },
+    {
+      "true": "activate_my_card",
+      "predicted": "card_not_working",
+      "count": 1
+    },
+    {
+      "true": "apple_pay_or_google_pay",
+      "predicted": "supported_cards_and_currencies",
+      "count": 1
+    }
+  ]
+}

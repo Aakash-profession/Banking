@@ -1,0 +1,11 @@
+{
+  "model": "tfidf_lr",
+  "split": "validation",
+  "accuracy": 0.9031,
+  "macro_f1": 0.9035,
+  "weighted_f1": 0.9029,
+  "train_time_s": 33.63,
+  "latency_avg_ms": 3.609,
+  "latency_p95_ms": 4.873,
+  "model_size_mb": 11.98
+}
