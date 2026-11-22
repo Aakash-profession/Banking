@@ -24,6 +24,7 @@ Definitions:
       are not blocked.
 """
 
+import os
 import time
 
 from fastapi import FastAPI
@@ -59,6 +60,9 @@ def health() -> dict:
     """Used by Render (and by people) to check the service is up."""
     return {
         "status": "ok",
+        # Which code is running? Render sets RENDER_GIT_COMMIT to the deployed commit, so you
+        # can compare it with `git log` and know whether your latest push is live.
+        "code_version": os.getenv("RENDER_GIT_COMMIT", "local")[:7],
         "model_version": MODEL_INFO["model_version"],
         "confidence_threshold": CONFIDENCE_THRESHOLD,
         "primary_llm_configured": is_primary_configured(),     # Groq
