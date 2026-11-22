@@ -1,0 +1,178 @@
+{
+  "hidden_intents": [
+    "apple_pay_or_google_pay",
+    "age_limit",
+    "lost_or_stolen_phone",
+    "terminate_account",
+    "card_swallowed"
+  ],
+  "threshold": 0.45,
+  "hidden_flagged_rate": 0.8251,
+  "flagged_pool_size": 593,
+  "flagged_share_hidden": 0.7319,
+  "kmeans": {
+    "k": 6,
+    "silhouette": 0.1857,
+    "purity": 0.7386,
+    "ari": 0.7641
+  },
+  "hdbscan": {
+    "clusters": 6,
+    "noise_share": 0.3895,
+    "purity": 0.989,
+    "ari": 0.3974
+  },
+  "hidden_intent_recovery": [
+    {
+      "intent": "apple_pay_or_google_pay",
+      "flagged": 100,
+      "best_cluster": 2,
+      "share_of_intent_in_cluster": 1.0,
+      "cluster_purity_for_intent": 0.87
+    },
+    {
+      "intent": "age_limit",
+      "flagged": 102,
+      "best_cluster": 3,
+      "share_of_intent_in_cluster": 0.99,
+      "cluster_purity_for_intent": 1.0
+    },
+    {
+      "intent": "lost_or_stolen_phone",
+      "flagged": 82,
+      "best_cluster": 5,
+      "share_of_intent_in_cluster": 0.988,
+      "cluster_purity_for_intent": 0.964
+    },
+    {
+      "intent": "terminate_account",
+      "flagged": 102,
+      "best_cluster": 1,
+      "share_of_intent_in_cluster": 0.99,
+      "cluster_purity_for_intent": 1.0
+    },
+    {
+      "intent": "card_swallowed",
+      "flagged": 48,
+      "best_cluster": 4,
+      "share_of_intent_in_cluster": 1.0,
+      "cluster_purity_for_intent": 0.511
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "size": 98,
+      "keywords": [
+        "money",
+        "transfer",
+        "payment",
+        "account",
+        "transaction"
+      ],
+      "llm_name": "payment_not_transferred",
+      "main_true_intent": "balance_not_updated_after_bank_transfer",
+      "main_intent_share": 0.071,
+      "typical_examples": [
+        "Why has my payment not transferred?",
+        "I transferred some funds but I don't see it",
+        "where has my transferred money gone?"
+      ]
+    },
+    {
+      "cluster": 1,
+      "size": 101,
+      "keywords": [
+        "account",
+        "delete",
+        "close",
+        "want",
+        "terminate"
+      ],
+      "llm_name": "delete_account",
+      "main_true_intent": "terminate_account",
+      "main_intent_share": 1.0,
+      "typical_examples": [
+        "I need to delete my account.",
+        "I want to delete my account.",
+        "Tell me how to delete my account."
+      ]
+    },
+    {
+      "cluster": 2,
+      "size": 115,
+      "keywords": [
+        "pay",
+        "apple",
+        "google",
+        "watch",
+        "use"
+      ],
+      "llm_name": "top_up_with_pay",
+      "main_true_intent": "apple_pay_or_google_pay",
+      "main_intent_share": 0.87,
+      "typical_examples": [
+        "Can I top-up via Apple Pay?",
+        "is there a way to do top up with apple pay",
+        "How do I get Top Up to work in Apple Pay?"
+      ]
+    },
+    {
+      "cluster": 3,
+      "size": 101,
+      "keywords": [
+        "account",
+        "open",
+        "age",
+        "children",
+        "old"
+      ],
+      "llm_name": "customer_account_opening",
+      "main_true_intent": "age_limit",
+      "main_intent_share": 1.0,
+      "typical_examples": [
+        "How old do kids have to be to open an account?",
+        "How old do my kids need to be to open an account?",
+        "What age do you have to be to open an account?"
+      ]
+    },
+    {
+      "cluster": 4,
+      "size": 94,
+      "keywords": [
+        "card",
+        "atm",
+        "machine",
+        "new",
+        "swallowed"
+      ],
+      "llm_name": "atm_card_issue",
+      "main_true_intent": "card_swallowed",
+      "main_intent_share": 0.511,
+      "typical_examples": [
+        "I can't get my card out of the ATM, what should I do now?",
+        "What do I do if I can't get my card out of the ATM?",
+        "What do I do?  The ATM took my card!"
+      ]
+    },
+    {
+      "cluster": 5,
+      "size": 84,
+      "keywords": [
+        "phone",
+        "app",
+        "use",
+        "stolen",
+        "lost"
+      ],
+      "llm_name": "lost_phone_support",
+      "main_true_intent": "lost_or_stolen_phone",
+      "main_intent_share": 0.964,
+      "typical_examples": [
+        "I lost my phone and need help so someone doesn't access my account.",
+        "I accidentally left my phone at the hotel so now I'm not able to use the app.",
+        "My phone got stolen, how can I use the app?"
+      ]
+    }
+  ]
+}
