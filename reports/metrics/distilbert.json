@@ -1,0 +1,13 @@
+{
+  "model": "distilbert",
+  "split": "validation",
+  "accuracy": 0.9111,
+  "macro_f1": 0.9148,
+  "weighted_f1": 0.9116,
+  "train_time_s": 7046.9,
+  "latency_avg_ms": 84.828,
+  "latency_p95_ms": 157.415,
+  "model_size_mb": 256.3,
+  "epochs": 3,
+  "device": "cpu"
+}
