@@ -1,0 +1,57 @@
+{
+  "intent_models": [
+    {
+      "model": "tfidf_lr",
+      "test_accuracy": 0.8961,
+      "test_macro_f1": 0.8965,
+      "val_macro_f1": 0.9035,
+      "latency_avg_ms": 3.609,
+      "model_size_mb": 11.98
+    },
+    {
+      "model": "minilm_lr",
+      "test_accuracy": 0.9276,
+      "test_macro_f1": 0.9274,
+      "val_macro_f1": 0.9325,
+      "latency_avg_ms": 27.682,
+      "model_size_mb": 86.8
+    },
+    {
+      "model": "minilm_xgb",
+      "test_accuracy": 0.9006,
+      "test_macro_f1": 0.9003,
+      "val_macro_f1": 0.8937,
+      "latency_avg_ms": 48.64,
+      "model_size_mb": 101.1
+    },
+    {
+      "model": "distilbert",
+      "test_accuracy": 0.9019,
+      "test_macro_f1": 0.9019,
+      "val_macro_f1": 0.9148,
+      "latency_avg_ms": 84.828,
+      "model_size_mb": 256.3
+    }
+  ],
+  "deployed_with_threshold": {
+    "threshold": 0.45,
+    "coverage": 0.8244,
+    "auto_accuracy": 0.9622,
+    "handoff_rate": 0.1756
+  },
+  "rag": {
+    "golden_questions": 30,
+    "tfidf_hit_at_1": 0.96,
+    "tfidf_hit_at_3": 1.0,
+    "minilm_hit_at_1": 1.0,
+    "minilm_hit_at_3": 1.0,
+    "correct_answer_rate": 0.92,
+    "wrong_refusal_rate": 0.04,
+    "correct_refusal_rate": 1.0,
+    "answered_by": {
+      "primary": 28,
+      "none": 2
+    },
+    "refusal_threshold": 0.15
+  }
+}

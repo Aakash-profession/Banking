@@ -1,0 +1,31 @@
+question,expected_doc,expected_phrase,answerable
+How many days does it take for a new card to arrive?,card_delivery.md,5 to 7 working days,yes
+How much does express card delivery cost?,card_delivery.md,£5,yes
+My card still hasn't come after two weeks. What do I do?,card_delivery.md,Card not received,yes
+How do I activate the card I just received?,card_activation_and_pin.md,6-digit code,yes
+I entered the wrong PIN three times and now it is blocked,card_activation_and_pin.md,Unblock PIN,yes
+What is the maximum amount I can top up per day?,top_up.md,"£5,000",yes
+Is there a fee for topping up with a debit card?,top_up.md,0.5%,yes
+My top-up failed. When do I get the money back?,top_up.md,5 working days,yes
+Which exchange rate do you use on weekdays?,exchange_rates_and_fees.md,interbank,yes
+Do you charge more for currency exchange at the weekend?,exchange_rates_and_fees.md,1%,yes
+How much currency can I exchange per month without paying a fee?,exchange_rates_and_fees.md,"£1,000",yes
+How much cash can I withdraw for free each month?,atm_withdrawals.md,£200,yes
+What is the daily ATM withdrawal limit?,atm_withdrawals.md,£500,yes
+The cash machine swallowed my card,atm_withdrawals.md,Replace card,yes
+I lost my card. What should I do?,lost_or_stolen_card.md,Freeze,yes
+There are payments on my account that I did not make,lost_or_stolen_card.md,60 days,yes
+How long does an international transfer take?,transfers.md,1 to 3 working days,yes
+How much does it cost to send money abroad?,transfers.md,0.5%,yes
+Can I cancel a bank transfer I sent?,transfers.md,pending,yes
+Which documents can I use to verify my identity?,identity_verification.md,passport,yes
+Why do you need to verify my identity?,identity_verification.md,law,yes
+Is my card a Visa or a Mastercard?,countries_and_currencies.md,Visa debit,yes
+How old do I have to be to open an account?,account_basics.md,18,yes
+How do I close my account?,account_basics.md,Close account,yes
+Can I add my card to Apple Pay?,account_basics.md,Add to wallet,yes
+What is the interest rate on your savings account?,,,no
+Can I get a mortgage from Demo Bank?,,,no
+What are the opening hours of your Mumbai branch?,,,no
+Can I buy Bitcoin in the app?,,,no
+What is the weather like in London today?,,,no
