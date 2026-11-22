@@ -66,7 +66,7 @@ LLM vs trained models on the **same 200 test messages** (Groq `openai/gpt-oss-20
 |---|---|
 | Retrieval hit@1 / hit@3, TF-IDF (deployed) | 0.96 / 1.00 |
 | Retrieval hit@1 / hit@3, MiniLM embeddings | 1.00 / 1.00 |
-| Correct answers (answerable, Groq) | 92% |
+| Correct answers (answerable, Groq) | 96% |
 | Correct refusals (not in the docs) | 100% |
 | Wrong refusals (answerable) | 4% (1 question: TF-IDF missed "abroad" ≈ "international") |
 
