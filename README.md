@@ -1,7 +1,8 @@
-# Banking IVR Intent Router (reference version, private)
+# Banking IVR Intent Router
 
-> **Phase 1 reference**, built step by step with Claude Code so I can learn from it.
-> It is never pushed to GitHub. My own rebuild lives in `../ivr-intent-router/`.
+> A learning project for AI-engineering interview preparation, built step by step with
+> Claude Code (an AI pair programmer) and explained line by line. Every number below was
+> measured on a laptop CPU (Intel i5-10310U, no GPU).
 
 A bank's phone line (IVR) or chat receives messages like *"my card hasn't arrived"* or
 *"why was I charged twice?"*. This project:
