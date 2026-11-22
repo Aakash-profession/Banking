@@ -1,0 +1,14 @@
+# requirements.txt = the libraries the DEPLOYED API needs.
+# In Step 10, Render installs ONLY this file (build command: pip install -r requirements.txt).
+#
+# WHY keep it small: Render's free tier has only 512 MB of RAM. Every heavy library
+# (torch, transformers, ...) we leave out of this file is memory we save in production.
+#
+# No version numbers yet ("pinning"). In Step 10 we pin exact versions
+# (e.g. pandas==3.1.1) so Render installs exactly what worked on my laptop.
+#
+# FastAPI, uvicorn and SQLAlchemy get added here in Step 10.
+
+numpy           # fast maths on arrays (lists of numbers)
+pandas          # tables (DataFrames), like Excel inside Python
+scikit-learn    # classic ML models (TF-IDF, Logistic Regression) + metrics

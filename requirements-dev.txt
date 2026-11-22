@@ -1,0 +1,16 @@
+# requirements-dev.txt = everything I need for EXPERIMENTS on my laptop.
+# Heavy libraries are fine here, because this file is never installed on Render.
+#
+# The "-r" line below means: "first install everything in requirements.txt too".
+# So my laptop always has everything the deployed API has, plus the extra tools below.
+-r requirements.txt
+
+matplotlib      # charts: class balance, text lengths, confusion pairs, threshold curves
+mlflow          # experiment tracking: records the settings + results of every run
+
+# Added in later steps, each one only when we first need it (so I know WHY it is here):
+#   Step 2: spacy, nltk                 -> text preprocessing
+#   Step 4: sentence-transformers, xgboost
+#   Step 5: torch, transformers         -> fine-tuning DistilBERT
+#   Step 8: faiss-cpu + an LLM SDK      -> RAG + LLM classification
+#   Step 9: pytest                      -> automatic tests

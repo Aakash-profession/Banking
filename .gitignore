@@ -1,0 +1,37 @@
+# .gitignore = a list of files and folders that Git must NOT track.
+# Git reads this file and silently skips anything that matches a line below.
+# A line ending with "/" means "this whole folder".
+
+# ---- Python cache ----
+# Python creates these automatically to start faster. They are rebuilt anytime.
+__pycache__/
+*.pyc
+
+# ---- Virtual environment ----
+# Every person creates their own .venv on their own laptop with
+#   pip install -r requirements-dev.txt
+# It is big (hundreds of MB) and laptop-specific, so it never goes into Git.
+.venv/
+
+# ---- Secrets ----
+# API keys live in a local .env file (and in Render environment variables online).
+# A key pushed to GitHub even once must be treated as leaked.
+.env
+
+# ---- Data and trained models ----
+# Big files that can be re-downloaded (data) or re-created by running a script (models).
+data/
+models/
+
+# ---- MLflow ----
+# MLflow 3.x saves runs in mlflow.db (a SQLite file) and saved files in mlruns/.
+# This history is local to this laptop.
+mlflow.db
+mlruns/
+mlartifacts/
+
+# ---- Editor / operating-system junk ----
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
